@@ -1,5 +1,4 @@
 # daily
-<<<<<<< HEAD
 
 > A Vue.js project
 
