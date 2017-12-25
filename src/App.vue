@@ -2,7 +2,7 @@
   <div class="daily">
     <div class="daily-menu">
       <div class="daily-menu-item" :class="{on: type === 'recommend'}" @click="handleToRecommend">每日推荐</div>
-      <div class="daily-menu-item" :class="{on: type === 'daily'}" @click="showThemes === !showThemes">主题日报</div>
+      <div class="daily-menu-item" :class="{on: type === 'daily'}" @click="showThemes = !showThemes">主题日报</div>
       <ul v-show="showThemes">
         <li v-for="item in themes">
           <a :class="{on: item.id === themeId && type === 'daily'}" @click="handleToTheme(item.id)">{{item.name}}</a>
@@ -46,7 +46,7 @@ export default {
   methods: {
     getThemes() {
       $.ajax.get('themes').then((res) => {
-        this.themes = res.other;
+        this.themes = res.others;
       });
     },
     handleToTheme(id) {
@@ -112,5 +112,75 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="less">
+.daily-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  overflow: auto;
+  background-color: #f5f7f9;
+  ul {
+    list-style: none;
+    li a{
+      display: block;
+      padding: 5px 0;
+      margin: 5px 0;
+      text-align: center;
+      cursor: pointer;
+      color: inherit;
+      &:hover, .on{
+        color: #3399ff;
+      }
+    }
+  }
+}
+
+.daily-menu-item {
+  margin: 5px 0;
+  padding:  10px 0;
+  border-right: 2px solid transparent;
+  transition: all .3s ease-in-out;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.daily-menu-item:hover {
+  background-color: #e3e8ee;
+}
+
+.daily-menu-item.on {
+  border-right: 2px solid #3399ff;
+}
+
+.dily-list {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  border-right: 1px solid #d7dde4;
+  width: 300px;
+}
+
+.daily-item {
+  display: block;
+  padding: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  color: inherit;
+}
+
+.daily-item:hover{
+  background-color: #e3e8ee;
+}
+
+.daily-article {
+  margin-left: 450px;
+  padding: 20px;
+}
 </style>
