@@ -66,5 +66,57 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="less">
+  .daily-article {
+    margin-left: 450px;
+    padding: 20px;
+  }
+
+  .daily-article-title {
+    padding: 10px 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+  }
+
+  .daily-comments {
+    margin: 10px 0;
+    span {
+      display: block;
+      margin: 10px 0;
+      font-style: 20px;
+    }
+  }
+
+  .daily-comment {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #e3e8ee;
+  }
+
+  .daily-comment-avatar {
+    width: 50px;
+    height: 50px;
+    float: left;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+    }
+  }
+
+  .daily-comment-content {
+    margin-left: 6px;
+  }
+
+  .daily-comment-time {
+    color: #9ea7ba;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .daily-comment-text {
+    margin-top: 10px;
+  }
 </style>

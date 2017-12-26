@@ -24,5 +24,34 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="less">
+  .dailt-item {
+    display: block;
+    padding: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    color: inherit;
+    &:hover {
+      background-color: #e3e8ee;
+    }
+  }
+
+  .daily-img {
+    float: left;
+    width: 80px;
+    height: 80px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+    }
+  }
+
+  .daily-title {
+    padding: 10px 5px 10px 90px;
+    &.noImg {
+      padding-left: 5px;
+    }
+  }
 </style>

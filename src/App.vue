@@ -67,8 +67,10 @@ export default {
     },
     getRecommendList() {
       this.isLoading = true;
-      const prevDay = $.getPrevDay(this.dailyTime - 86400000);
-      $.ajax.get('news/before/' + prevDay).then((res) => {
+      const prevDay = $.getPrevDay(this.dailyTime + 86400000);
+      console.log(prevDay);
+      $.ajax.get('news/before/' + prevDay).then(res => {
+        console.log(res);
         this.recommendList.push(res);
         this.isLoading = false;
       });
@@ -155,14 +157,19 @@ export default {
   border-right: 2px solid #3399ff;
 }
 
-.dily-list {
+.daily-list {
   position: fixed;
-  top: 0;
   bottom: 0;
-  left: 0;
+  top: 0;
+  left: 150px;
+  width: 300px;
   overflow: auto;
   border-right: 1px solid #d7dde4;
-  width: 300px;
+}
+
+.daily-date {
+  text-align: center;
+  margin: 10px 0;
 }
 
 .daily-item {
